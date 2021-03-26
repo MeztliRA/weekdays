@@ -8,8 +8,10 @@ import (
 )
 
 const (
-	messageWeekday = "Its the weekday!"
-	messageWeekend = "Its the weekend!"
+	messageWeekday      = "Its the weekday!"
+	messageWeekend      = "Its the weekend!"
+	messageWeekdayShort = "weekday!"
+	messageWeekendShort = "weekend!"
 )
 
 func TestMessage(t *testing.T) {
@@ -21,6 +23,20 @@ func TestMessage(t *testing.T) {
 		}
 	default:
 		if got != messageWeekday {
+			t.Errorf("Message is not the same")
+		}
+	}
+}
+
+func TestMessageShort(t *testing.T) {
+	got := weekdays.MessageShort()
+	switch time.Now().Weekday() {
+	case time.Saturday, time.Sunday:
+		if got != messageWeekendShort {
+			t.Errorf("Message is not the same")
+		}
+	default:
+		if got != messageWeekdayShort {
 			t.Errorf("Message is not the same")
 		}
 	}
