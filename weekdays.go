@@ -5,8 +5,10 @@ import (
 )
 
 const (
-	messageWeekday = "Its the weekday!"
-	messageWeekend = "Its the weekend!"
+	messageWeekday      = "Its the weekday!"
+	messageWeekend      = "Its the weekend!"
+	messageWeekdayShort = "weekday!"
+	messageWeekendShort = "weekend!"
 )
 
 func IsWeekday() bool {
@@ -33,5 +35,14 @@ func Message() string {
 		return messageWeekend
 	default:
 		return messageWeekday
+	}
+}
+
+func MessageShort() string {
+	switch time.Now().Weekday() {
+	case time.Saturday, time.Sunday:
+		return messageWeekendShort
+	default:
+		return messageWeekdayShort
 	}
 }
