@@ -1,6 +1,7 @@
 package weekdays
 
 import (
+	"fmt"
 	"time"
 )
 
@@ -45,4 +46,12 @@ func MessageShort() string {
 	default:
 		return messageWeekdayShort
 	}
+}
+
+func PrintMessage() {
+	fmt.Println(Message())
+}
+
+func PrintMessageShort() {
+	fmt.Println(MessageShort())
 }
