@@ -12,6 +12,7 @@ const (
 	messageWeekendShort = "weekend!"
 )
 
+// return true if its the weekday, else return false
 func IsWeekday() bool {
 	switch time.Now().Weekday() {
 	case time.Saturday, time.Sunday:
@@ -21,6 +22,7 @@ func IsWeekday() bool {
 	}
 }
 
+// return true if its the weekend, else return false
 func IsWeekend() bool {
 	switch time.Now().Weekday() {
 	case time.Saturday, time.Sunday:
@@ -30,6 +32,7 @@ func IsWeekend() bool {
 	}
 }
 
+// return a different message depending on whether its the weekday or the weekend
 func Message() string {
 	switch time.Now().Weekday() {
 	case time.Saturday, time.Sunday:
@@ -39,6 +42,7 @@ func Message() string {
 	}
 }
 
+// similar to Message(), but the returned message are shorter
 func MessageShort() string {
 	switch time.Now().Weekday() {
 	case time.Saturday, time.Sunday:
@@ -48,10 +52,12 @@ func MessageShort() string {
 	}
 }
 
+// print the returned message from Message()
 func PrintMessage() {
 	fmt.Println(Message())
 }
 
+// print the returned message from MessageShort()
 func PrintMessageShort() {
 	fmt.Println(MessageShort())
 }
